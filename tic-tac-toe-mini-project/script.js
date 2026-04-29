@@ -18,6 +18,13 @@ const winningPattern = [
     [6,7,8],
 
 ];
+const resetGame =() => {
+    turn0 =true;
+    enableBoxes();
+    messageContainer.classList.add("hide");
+}
+resetBtn.addEventListener("click", resetGame);
+newGameBtn.addEventListener("click", resetGame);
 boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
         console.log("the box is click");
@@ -41,6 +48,12 @@ const disableBoxes = () => {
         box.disabled = true;
     }
 }
+const enableBoxes = () => {
+    for(let box of boxes) {
+        box.disabled = false;
+        box.innerText="";
+    }
+};
 
 const showWinner = (winner) => {
     message.innerText = `Winner is ${winner}`;
